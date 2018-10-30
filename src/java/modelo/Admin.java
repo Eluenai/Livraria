@@ -6,43 +6,32 @@
 package modelo;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 
 /**
  *
- * @author dappo
+ * @author Eluenai
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Genero.findAll", query = "SELECT g FROM Genero g"),
-    @NamedQuery(name = "Genero.findFilter", query = "SELECT g FROM Genero g WHERE g.genero like :filtro")
+    @NamedQuery(name = "Admin.findAll", query = "SELECT d FROM Admin d"),
+    @NamedQuery(name = "Admin.findFilter", query = "SELECT d FROM Admin d WHERE d.nome like :filtro")
 })
-public class Genero implements Serializable {
-
-    @OneToMany(mappedBy = "genero")
-    private List<Livro> livros;
+public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-    private String genero;
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
+    private String nome;
+    private String email;
+    private String senha;
+    private String endfoto;
 
     public Long getId() {
         return id;
@@ -51,6 +40,39 @@ public class Genero implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getEndfoto() {
+        return endfoto;
+    }
+
+    public void setEndfoto(String endfoto) {
+        this.endfoto = endfoto;
+    }
+    
 
     @Override
     public int hashCode() {
@@ -62,10 +84,10 @@ public class Genero implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Genero)) {
+        if (!(object instanceof Admin)) {
             return false;
         }
-        Genero other = (Genero) object;
+        Admin other = (Admin) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -74,7 +96,7 @@ public class Genero implements Serializable {
 
     @Override
     public String toString() {
-        return "modelo.Genero[ id=" + id + " ]";
+        return "modelo.Admin[ id=" + id + " ]";
     }
     
 }
