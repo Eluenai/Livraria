@@ -20,6 +20,7 @@
                     <div class="form-group">
                         <label>Classificação</label>
                         <input type="text" name="txtTipo" required class="form-control" placeholder="Tipo" >
+                        
                     </div>
                 </div>
             </div>

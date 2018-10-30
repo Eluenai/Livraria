@@ -23,7 +23,7 @@
                         <c:forEach items="${lista}" var="obj">
                             <tr>
                                 <td>${obj.id}</td>
-                                <td>${obj.classificacao}</td>
+                                <td>${obj.tipo}</td>
                                 <td>
                                     <a class="btn btn-info btn-fab btn-icon btn-round" href="ClassificacaoWS?acao=edit&id=${obj.id}">
                                         <i class="tim-icons icon-pencil"></i>
